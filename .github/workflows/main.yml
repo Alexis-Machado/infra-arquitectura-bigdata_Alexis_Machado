@@ -1,0 +1,45 @@
+name: Json_to_Excel_Pipeline
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: windows-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: 📥 Clonar Repositorio
+        uses: actions/checkout@v4
+
+      - name: 🐍 Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.9.2'
+
+      - name: ⚙️ Crear Entorno Virtual
+        run: python -m venv venv
+
+      - name: 🚀 Activar Entorno Virtual
+        shell: pwsh
+        run: ./venv/Scripts/Activate.ps1  
+
+      - name: 📦 Actualizar pip
+        run: pip install --upgrade pip
+
+      - name: 📂 Instalar Dependencias
+        run: pip install -e .
+
+      - name: ▶️ Ejecutar Script
+        shell: pwsh
+        run: python script.py
+
+      - name: 📤 Commit y Push de Cambios
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Conversión de JSON a Excel Completada 📊✅"
+          commit_user_name: "Jhon Alexis Machado Rodríguez [GitHub Actions]"
+          commit_user_email: "jmachadoa12@gmail.com"
+          commit_author: "Jhon Alexis Machado Rodríguez <jmachadoa12@gmail.com>"
