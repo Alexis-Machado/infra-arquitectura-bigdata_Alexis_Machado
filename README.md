@@ -293,10 +293,16 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
+      # Agregamos un paso para actualizar la rama local con rebase,
+      # evitando conflictos al hacer el push.
+      - name: 🔄 Actualizar rama local
+        run: |
+          git pull --rebase origin main
+
       - name: 📤 Hacer commit de los cambios
         run: |
           git add .
-          git commit -m "✅🎉 Actualización Automática de Datos ✨" || echo "No hay cambios para commitear"
+          git commit -m "Actualización Automática de Datos ✅🎉" || echo "No hay cambios para commitear"
           git push https://${{ secrets.GITHUB_TOKEN }}@github.com/Alexis-Machado/infra-arquitectura-bigdata_Alexis_Machado.git
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
