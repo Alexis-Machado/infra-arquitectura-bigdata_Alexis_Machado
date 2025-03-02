@@ -275,6 +275,10 @@ jobs:
       - name: 🛎️ Checkout del repositorio
         uses: actions/checkout@v3
 
+      - name: 🔄 Rebase antes de ingestar
+        run: |
+          git pull --rebase origin main
+
       - name: 🐍 Configurar Python
         uses: actions/setup-python@v4
         with:
@@ -292,12 +296,6 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-
-      # Agregamos un paso para actualizar la rama local con rebase,
-      # evitando conflictos al hacer el push.
-      - name: 🔄 Actualizar rama local
-        run: |
-          git pull --rebase origin main
 
       - name: 📤 Hacer commit de los cambios
         run: |
@@ -319,6 +317,7 @@ jobs:
         run: |
           docker build -t bigdata-ingestion .
           docker run --rm bigdata-ingestion
+
 ```
 
 🔹 9.2 Explicación del Flujo
