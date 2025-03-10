@@ -1,17 +1,17 @@
-# Usamos la imagen oficial de Python 3.9 como Base
+# Usamos la imagen oficial de Python 3.9 como base
 FROM python:3.9
 
-# Definimos el Directorio de Trabajo Dentro del Contenedor
+# Definimos el directorio de trabajo dentro del contenedor
 WORKDIR /app
 
-# Copiamos el Archivo de Dependencias (requirements.txt) al Contenedor
+# Copiamos el archivo de dependencias (requirements.txt) al contenedor
 COPY requirements.txt .
 
-# Instalamos las Dependencias sin Usar Caché para Reducir el Tamaño de la Imagen
+# Instalamos las dependencias
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copiamos el Código Fuente al Contenedor Dentro del Directorio /app/src
+# Copiamos el código fuente al contenedor dentro del directorio /app/src
 COPY src/ ./src
 
-# Definimos el Comando de Inicio que Ejecutará el Script de Ingesta de Datos
-CMD ["python", "src/bigdata/ingestion.py"]
+# Ejecutamos en secuencia el script de ingesta de EA1 y luego el de preprocesamiento y limpieza de EA2
+CMD ["sh", "-c", "python src/bigdata/ingestion.py && python src/bigdata/cleaning.py"]

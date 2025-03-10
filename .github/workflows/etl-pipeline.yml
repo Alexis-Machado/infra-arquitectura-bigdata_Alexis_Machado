@@ -1,4 +1,4 @@
-name: Data Ingestion Automation
+name: ETL Pipeline Automation
 
 on:
   push:
@@ -27,8 +27,11 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: 🚀 Ejecutar script de ingesta
+      - name: 🚀 Ejecutar script de ingesta (EA1)
         run: python src/bigdata/ingestion.py
+
+      - name: 🚀 Ejecutar script de limpieza (EA2)
+        run: python src/bigdata/cleaning.py
 
       - name: 📂 Configurar Git
         run: |
@@ -38,7 +41,7 @@ jobs:
       - name: 📤 Hacer commit de los cambios
         run: |
           git add .
-          git commit -m "Actualización Automática de Datos ✅🎉" || echo "No hay cambios para commitear"
+          git commit -m "Actualización Automática de Datos (EA1) y (EA2) ✅🎉" || echo "No hay cambios para commitear"
           git push https://${{ secrets.GITHUB_TOKEN }}@github.com/Alexis-Machado/infra-arquitectura-bigdata_Alexis_Machado.git
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
