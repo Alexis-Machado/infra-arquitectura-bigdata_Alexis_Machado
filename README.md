@@ -1387,7 +1387,7 @@ El siguiente enlace y las imagenes muestran el flujo de datos desde la ingesta h
 
 ![Arquitectura del Proyecto Imagen](https://i.ibb.co/Vc1NcPWy/Arquitectura-img.png)
 
-![Arquitectura del Proyecto Imagen-2](https://i.ibb.co/bjC37vTv/Arquitectura-Fases.png)
+![Arquitectura del Proyecto Imagen-2](https://i.postimg.cc/RZnVNfP7/Arquitectura-Fases.png)
 
 
 ## Diagrama del Modelo de Datos del Proyecto  
@@ -1400,7 +1400,7 @@ Los siguientes enlaces y las imágenes muestran la estructura de las tablas y re
 
 ![Modelo de Datos Imagen-2](https://i.ibb.co/7dXmwrQv/Itegraci-n.png) 
 
-![Modelo de Datos Imagen-1](https://i.ibb.co/Xf3Bh4tk/Modelo-Datos.png)  
+![Modelo de Datos Imagen-1](https://i.postimg.cc/76ZFTrxF/Modelo-Datos.png)  
 
 ![Modelo de Datos Imagen-3](https://i.ibb.co/RkqSZRc8/Modelo-Datos.png)  
 
