@@ -1,5 +1,5 @@
 ===== INFORME DE ENRIQUECIMIENTO DE DATOS =====
-Fecha/Hora de Enriquecimiento: 2025-04-05 21:13:02.588450
+Fecha/Hora de Enriquecimiento: 2025-04-05 21:28:56.870904
 
 === Dataset Base (EA2 - COVID Limpio) ===
   - Registros: 444
